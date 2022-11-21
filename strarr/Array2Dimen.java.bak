@@ -38,5 +38,3 @@ class Array2Dimen {
 
 	}
 }
-
-
