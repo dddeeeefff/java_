@@ -1,0 +1,44 @@
+import java.util.*;
+
+class ExceptionUseIf {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[] arr = new int[100];
+		// 배열에서 선택한 수를 변수에 대입?
+
+		/*int num1, num2, div;
+
+		System.out.println("나누어 지는 수를 입력하시오 : ");
+		int num1  = sc.nextInt();
+
+		System.out.println("나누는 수를 입력하시오 : ");
+		int num2  = sc.nextInt();
+
+		System.out.println(num1 / num2);*/
+
+		// 나누어 지는 수와 나누는 수를 입력받아 나눗셈 작업 후 저장할 인덱스 번호를 받아 배열에 저장(총 3개)
+		for(int i = 0; i < 3; i++){
+			System.out.print("나누어 지는 수 : ");	int n1 = sc.nextInt();
+			System.out.print("나누는 수 : ");		int n2 = sc.nextInt();
+
+			if(n2 == 0){
+				System.out.println("나누는 수가 0이 될 수 없습니다.");
+				i--;
+				continue;
+			}
+
+			System.out.print("결과 저장 인덱스 : ");	int idx = sc.nextInt();
+
+			if(idx < 0 || idx >= arr.length){
+				System.out.println("유효하지 않은 인덱스 번호입니다.");
+				i--;
+				continue;
+			}
+
+			arr[idx] = n1 / n2;
+			System.out.println("나눗셈 결과 : " + arr[idx]);
+			System.out.println("저장된 위치 : " + idx);
+		}
+
+ 	}
+}
