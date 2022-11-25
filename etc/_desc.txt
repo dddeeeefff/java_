@@ -54,3 +54,72 @@ float		nextFloat() : float형 난수 리턴
 int			nextInt() : int형 난수 리턴
 int			nextInt(int bound) : 0이상 bound 미만의 int형 난수 리턴
 long		nextLong() : long형 난수 리턴
+
+
+Wrapper 클래스들
+ - 기본 자료형 데이터들을 자료형을 유지한 채 객체(인스턴스)로 만들어 주는 클래스들을 통틀어 Wrapper 클래스라 함
+ - 종류 : java.lang 패키지 안의 Boolean, Byte, Charactor, Double, Float, Integer, Long, Short
+ - Boxing : 기본자료형 데이터를 객체로 만드는 것
+ - Unboxing : 객체가 된 데이터를 다시 기본자료형 데이터로 돌려놓는 것
+ - 정석은 new 명령을 사용하여 인스턴스를 생성해야 하지만 직접 값을 넣는 것으로 boxing과 unboxing을 처리할 수 있음
+ 	예) Integer i1 = new Integer(10);  Integer iw = 10; // 두 명령은 동일함
+	new 명령 사용시 jdk 버전에 따라 경고(warning) 메시지가 발생할 수도 있음
+
+ - 생성자 : 대표로 Integer 클래스를 사용
+public Integer(int value) : 받아온 int형 데이터(value)를 Integer형 인스턴스로 생성
+public Integer(String s) : 받아온 문자열을 Integer형 인스턴스로 생성
+	다른 모든 Wrapper 클래스의 생성자들도 본연의 자료형과 문자열을 매개변수로 사용하여 인스턴스로 생성함
+	매개변수의 문자열에는 단순 문자열이 아닌 해당 자료형처럼 생긴 문자열만 사용가능
+
+ - 주요 메소드
+static int parseInt(String s) : 받아온 문자열(s)를 int형 데이터로 변환 후 리턴
+	모든 Wrapper 클래스에 parse자료형(String s)의 이름으로 존재하는 메소드
+	예) int n = Integer.parseInt("1234"); // 문자열 "1234"를 int형 데이터 1234로 변환하여 변수 n에 저장
+
+static Integer valueOf(String s) : 받아온 문자열(s)를 Integer형 인스턴스로 변환 후 리턴
+	모든 Wrapper 클래스에 동일한 이름으로 존재하는 메소드
+	예) Integer n = Integer.valueOf("1234"); // 문자열 "1234"를 Integer형 인스턴스로 변환해 변수 n에 저장
+
+
+BigInteger 클래스
+ - java.math 패키지에 있는 long형으로도 표현할 수 없는 정수를 표현 및 연산할 때 사용하는 클래스
+ - 생성자
+BigInteger(String val) : 받아온 문자열(val)을 BigInteger 인스턴스로 생성하여 리턴
+
+ - 주요 메소드
+리턴타입		메소드명 및 설명
+BigInteger	abs()					 : 절대값 구하여 BigInteger형으로 리턴
+BigInteger	add(BigInteger val)		 : BigInteger 인스턴스에 지정한 val을 더한 값을 BigInteger형으로 리턴
+BigInteger	divide(BigInteger val)	 : BigInteger 인스턴스에 지정한 val을 나눈 값을 BigInteger형으로 리턴
+double		doubleValue()			 : BigInteger 인스턴스를 double형 데이터로 변환하여 리턴
+float		floatValue()			 : BigInteger 인스턴스를 float형 데이터로 변환하여 리턴
+int			intValue()				 : BigInteger 인스턴스를 int형 데이터로 변환하여 리턴
+long		longValue()				 : BigInteger 인스턴스를 long형 데이터로 변환하여 리턴
+BigInteger	mod(BigInteger m)		 : BigInteger 인스턴스에 지정한 m으로 나눈 나머지 값을 BigInteger형으로 리턴
+BigInteger	multiply(BigInteger val) : 인스턴스에 지정한 val을 곱한 값을 BigInteger형으로 리턴
+BigInteger	subtract(BigInteger val) : 인스턴스에 지정한 val을 뺀 값을 BigInteger형으로 리턴
+
+
+BigDecimal 클래스
+ - java.math 패키지에 있는 정확한 실수 연산이 필요한 경우 사용하는 클래스
+ - 생성자
+BigDecimal(String val) : 받아온 문자열(val)을 BigDecimal 인스턴스로 생성하여 리턴
+
+ - 주요 메소드
+리턴타입		메소드명 및 설명
+BigDecimal	abs()					 : 절대값 구하여 BigInteger형으로 리턴
+BigDecimal	add(BigDecimal val)		 : BigDecimal 인스턴스에 지정한 val을 더한 값을 BigDecimal형으로 리턴
+BigDecimal	divide(BigDecimal val)	 : BigDecimal 인스턴스에 지정한 val을 나눈 값을 BigDecimal형으로 리턴
+double		doubleValue()			 : BigDecimal 인스턴스를 double형 데이터로 변환하여 리턴
+float		floatValue()			 : BigDecimal 인스턴스를 float형 데이터로 변환하여 리턴
+int			intValue()				 : BigDecimal 인스턴스를 int형 데이터로 변환하여 리턴
+long		longValue()				 : BigDecimal 인스턴스를 long형 데이터로 변환하여 리턴
+BigDecimal	mod(BigDecimal m)		 : BigDecimal 인스턴스에 지정한 m으로 나눈 나머지 값을 BigDecimal형으로 리턴
+BigDecimal	multiply(BigDecimal val) : 인스턴스에 지정한 val을 곱한 값을 BigDecimal형으로 리턴
+BigDecimal	subtract(BigDecimal val) : 인스턴스에 지정한 val을 뺀 값을 BigDecimal형으로 리턴
+
+
+inner 클래스
+ - 클래스 안에서 또다른 클래스를 정의하여 사용하는 것
+ - 반드시 outer클래스에 종속되어야 되며, outer 클래스의 인스턴스 생성 후 그 인스턴스로 inner 클래스의 인스턴스가 생성됨
+ (outer클래스의 인스턴스 안에 inner 클래스의 인스턴스가 존재하게 됨)

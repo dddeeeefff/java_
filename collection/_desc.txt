@@ -1,0 +1,91 @@
+컬렉션 프레임웍(Collection Framework)
+ - java.util 패키지에 있음
+ - 배열과 비슷하게 여러 데이터를 저장할 수 있으며 배열과 다르게 많은 기능을 갖추고 있는 클래스들
+ - 단, 배열에 비해 속도가 느려서 많은 양의 데이터를 처리할 경우 고민해 봐야 함
+ - 여러 데이터를 저장하는 클래스들과 인터페이스들을 표준화하여 설계한 것을 의미
+ - 예전의 Vector, Hashtable, Properties 등의 여러 데이터를 저장할 수 있는 클래스들을 새롭게 정비하여 표준화 함
+ - 컬렉션 프레임웍에는 List, Set, Map의 세 종류가 존재
+ - List와 Set은 Collection 인터페이스를 상속받아 작업하는 인터페이스
+ - 컬렉션 프레임웍의 클래스들은 기본적으로 저장하는 데이터들의 자료형임 Object임
+ 	단, 모두 제네릭을 사용하여 저장할 자료형(클래스)을 지정할 수 있음
+
+1. Collection<E> 인터페이스
+ - List와 Set의 상위인터페이스로 두 인터페이스에서 상속을 받아 사용하고 있으므로 두 인터페이스가 동일한 기능을 가지게 됨
+ - 컬렉션 클레스들에서 사용하게 될 기본적인 기능(데이터 저장, 참조, 추가, 삭제)들의 메소드를 선언한 인터페이스
+ - interface Collection<E> : 제네릭으로 저장할 데이터의 자료형을 강제할 수 있음
+ - 주요 메소드
+리턴타입		메소드명 및 설명
+boolean		add(E e) : 제네릭으로 지정한 자료형의 데이터를 컬렉션에 추가한 후 성공여부를 리턴
+boolean		addAll(Collection<? extends E> c) : E를 상속받은 데이터들이 들어있는 컬렉션 c를 추가 
+void		clear() : 해당 컬렉션의 모든 데이터를 삭제
+boolean     contains(Object o) : 컬렉션에 지정한 데이터(o)가 있는지 여부를 리턴
+boolean     containsAll(Collection<?> c) : 컬렉션에 지정한 컬렉션(c)의 데이터들이 모두 들어 있는지 여부를 리턴
+boolean     equals(Object o) : 동일한 컬렉션인지 여부를 리턴
+int         hashCode() : 컬렉션의 해쉬코드(해당 컬렉션의 주소값으로 JVM에서 다른 컬렉션과의 구분을 위해 사용)를 리턴
+boolean     isEmpty() : 컬렉션이 비어 있는지 여부를 리턴
+Iterator<E> iterator() : 컬렉션의 iterator를 리턴
+boolean     remove(Object o) : 컬렉션에서 지정한 데이터(o)를 삭제한 후 성공여부를 리턴
+boolean     removeAll(Collection<?> c) : 컬렉션에서 지정한 컬렉션(c)의 데이터들을 삭제한 후 성공여부를 리턴
+boolean     retainAll(Collection<?> c) : 컬렉션에서 지정한 컬렉션(c)의 데이터들만 남기고 다른 데이터들 삭제
+int         size() : 컬렉션에 저장된 데이터의 개수
+Object[]    toArray() : 컬렉션을 Object배열로 리턴
+<T> T[]     toArray(T[] a) : 컬렉션을 지정한 T형 배열 a에 저장
+
+2. List 인터페이스
+ - Collection 인터페이스를 상속받음
+ - 입력 순서를 유지(인덱스 번호)하는 데이터의 집합으로 데이터 중복을 허용함
+ - 구현 클래스 : ArrayList, LinkedList, Stack, Vector 등이 있음
+ - Interface List<E> : 제네릭을 지정함으로서 저장할 데이터의 자료형을 강제할 수 있음
+ - 주요메소드 : Collection 인터페이스의 메소드들은 생략
+리턴타입			메소드명 및 설명
+void			add(int index, E element)					 : 리스트의 index위치에 element를 추가
+boolean			addAll(int index, Collection<? extends E> c) : 리스트의 index위치에 E를 상속받은 데이터들이 들어있는 컬렉션 c를 통째로 추가
+E				get(int index)								 : 리스트의 index위치에 있는 데이터를 제네릭으로 지정한 자료형으로 리턴
+int				indexOf(Object o)							 : 리스트에서 지정한 데이터(o)의 위치 인덱스번호를 리턴(없으면 -1 리턴)
+int				lastIndexOf(Object o)						 : indexOf()와 비슷하며 뒤에서 부터 찾기 시작
+ListIterator<E> listIterator()								 : 리스트 전용 Iterator인 ListIterator를 리턴
+E				remove(int index)							 : 리스트에서 지정한 index에 해당하는 데이터를 삭제한 후 해당 데이터를 리턴
+E				set(int index, E element)					 : 리스트의 index위치에 element를 저장하면서 기존 데이터를 삭제
+List<E>			subList(int fromIndex, int toIndex)			 : 리스트를 fromIndex 부터 toIndex - 1까지 잘라내어 리스트로 리턴
+
+2-1. ArrayList 클래스
+ - 컬렉션 프레임워크 클래스들 중 가장 많이 사용하는 클래스로 기존의 Vector를 개선한 클래스
+ - List 인터페이스를 implements한 클래스로 Collection과 List의 인터페이스들을 구현해 놓음
+ - 생성자
+ArrayList() : 기본 크기(10)로 생성
+ArrayList(Collection<? extends E> c) : 지정한 컬렉션인 E를 상속받은 데이터들로 데이터들이 저장된 컬렉션 c로 생성
+ - Collection을 상속 또는 구현하는 다른 객체(LinkedList, Vector, Set 등)들로 ArrayList를 생성할 수 있음
+ArrayList(int initialCapacity) : 지정한 initialCapacity를 크기로 하는 ArrayList 생성
+ - 주요 메소드 : Collection과 List 인터페이스의 메소드들은 생략
+리턴타입		메소드명 및 설명
+Object      clone()							 : 해당 ArrayList를 복제하여 리턴
+void		ensureCapacity(int minCapacity)  : ArrayList의 최소용량을 지정한 minCapacity로 설정
+void		trimToSize()					 : 용량을 크기에 맞게 줄여줌(빈 칸을 없애줌, ArrayList에 모두 저장한 후 사용해야 함)
+
+2-2. Linked List 클래스
+
+2-3. Stack 클래스
+
+2-4. Queue 인터페이스
+
+
+3. Set 인터페이스
+
+3-1. HashSet 클래스
+
+
+4. Map 인터페이스
+
+4-1. HashMap 클래스
+
+
+5. Enumeration, Iterator, ListIterator
+
+5-1. Enumeration 인터페이스
+
+5-2. Iterator 인터페이스
+
+5-3. ListIterator 인터페이스
+
+
+6. Arrays 클래스
