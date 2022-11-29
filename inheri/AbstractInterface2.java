@@ -2,7 +2,7 @@ interface PersonalNumberStorage {
 	void addPersonalInfo(String name, String pNum);
 	String searchName(String pNum);
 	// interface에서 선언하는 모든 메소드를 자동으로 public abstract로 선언됨
-	// interface에서는 절대 구현된 메소드를 정의할 수 없고 무조건 public abstract 메소드만 선언해야 함
+	// interface에서는 절데 구현된 메소드를 정의할 수 없고 무조건 public abstract 메소드만 선언해야 함
 }
 
 class PersonalInfo{
@@ -53,14 +53,14 @@ class AbstractInterface2 {
 
 		String result = storage.searchName("950000-1234567");
 		if(result == null) result = "검색결과 없음";
-		System.out.println(result); // 홍길동
+		System.out.println(result);
 
 		result = storage.searchName("970000-1234567");
 		if(result == null) result = "검색결과 없음";
-		System.out.println(result); // 전우치
+		System.out.println(result);
 
 		result = storage.searchName("0000");
 		if(result == null) result = "검색결과 없음";
-		System.out.println(result); // 검색결과 없음
+		System.out.println(result);
 	}
 }

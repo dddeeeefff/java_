@@ -18,7 +18,6 @@ class InstanceOfEx1 {
 		GoldBox box3 = new GoldBox();
 
 		wrapBox(box1);		wrapBox(box2);		wrapBox(box3);
-		//basic wrap		//paper wrap		//gold wrap
 	}
 	public static void wrapBox(BasicBox box){
 	// 매개변수를 BasicBox형으로 선언했기 때문에 그 하위클래스인 PaperBox와 GoldBox형 인스턴스도 매개변수로 받을 수 있음
