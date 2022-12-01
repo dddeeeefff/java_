@@ -24,7 +24,7 @@ class CalendarEx5 {
 		weekDay = sdate.get(Calendar.DAY_OF_WEEK);
 		// 시작일의 요일 번호로 날짜 출력의 시작점으로 사용됨
 		endDay = edate.get(Calendar.DATE);
-		// 말일로 달력 출력의 종요점으로 사용됨
+		// 말일로 달력 출력의 종료점으로 사용됨
 
 		System.out.println("      " + args[0] + "년" + args[1] + "월");
 		System.out.println(" SU MO TU WE TH FR SA");
